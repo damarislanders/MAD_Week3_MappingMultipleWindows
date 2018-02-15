@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
     <EditTextPreference
         android:key="lat"
         android:defaultValue="50.9"
@@ -10,9 +11,18 @@
         android:defaultValue="-1.4"
         android:title="Longitude"
         android:summary="Longitude to show the map at initially." />
+
     <CheckBoxPreference
         android:key="autodownload"
         android:defaultValue="true"
         android:title="Auto-download"
-        android:summary="Auto-download data about surrounding cinemas?" />
+        android:summary="Auto-download GPS data around current location" />
+
+    <ListPreference
+        android:key="pref_mapProvider"
+        android:title="Map Provider"
+        android:summary="Choose your Map Provider."
+        android:entries="@array/mapProvider"
+        android:entryValues="@array/mapProvider"
+        />
 </PreferenceScreen>

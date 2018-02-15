@@ -1,8 +1,10 @@
 package uk.co.damaris.mapping;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -12,6 +14,7 @@ import android.view.View.OnClickListener;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import org.osmdroid.config.Configuration;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
@@ -79,6 +82,13 @@ public class MainActivity extends AppCompatActivity implements OnClickListener
             Intent intent = new Intent(this, MapChooseActivity.class);
             startActivityForResult(intent,0);
             return true;
+
+        } else if (item.getItemId() == R.id.preferences) {
+
+            Intent intent = new Intent(this, MyPrefsActivity.class);
+            startActivityForResult(intent,0);
+            return true;
+
         }
         return false;
     }
@@ -104,6 +114,27 @@ public class MainActivity extends AppCompatActivity implements OnClickListener
 
             }
         }
+    }
+
+    public void onStart()
+    {
+        super.onStart();
+
+        new AlertDialog.Builder(this).setPositiveButton("OK", null).setMessage("onStart() called").show();
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        double lat = Double.parseDouble ( prefs.getString("lat", "50.9") );
+        double lon = Double.parseDouble ( prefs.getString("lon", "-1.4") );
+        boolean autodownload = prefs.getBoolean("autodownload", true);
+        //String pizzaCode = prefs.getString("pizza", "NONE");
+
+        // do something with the preference data...
+    }
+
+    public void onStop()
+    {
+        super.onStop();
+        Toast.makeText(this, "onStop() called", Toast.LENGTH_SHORT).show();
     }
 
 
