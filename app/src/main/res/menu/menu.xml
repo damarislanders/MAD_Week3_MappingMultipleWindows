@@ -9,4 +9,8 @@
         android:id="@+id/preferences"
         android:title="Preferences"/>
 
+    <item
+        android:id="@+id/setlatlon"
+        android:title="Set Latitude and Longitude"/>
+
 </menu>

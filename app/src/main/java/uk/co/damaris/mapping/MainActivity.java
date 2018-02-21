@@ -42,9 +42,11 @@ public class MainActivity extends AppCompatActivity implements OnClickListener
 
         mv = (MapView)findViewById(R.id.map1);
 
+
         mv.setBuiltInZoomControls(true);
         mv.getController().setZoom(16);
         mv.getController().setCenter(new GeoPoint(50.9115,-1.4156));
+
 
         Button b = (Button)findViewById(R.id.goButton);
         b.setOnClickListener(this);
@@ -86,9 +88,14 @@ public class MainActivity extends AppCompatActivity implements OnClickListener
         } else if (item.getItemId() == R.id.preferences) {
 
             Intent intent = new Intent(this, MyPrefsActivity.class);
-            startActivityForResult(intent,0);
+            startActivityForResult(intent,1);
             return true;
 
+        } else if (item.getItemId() == R.id.setlatlon) {
+
+            Intent intent = new Intent(this, MyLatLonActivity.class);
+            startActivityForResult(intent,2);
+            return true;
         }
         return false;
     }
@@ -111,6 +118,14 @@ public class MainActivity extends AppCompatActivity implements OnClickListener
                     mv.setTileSource(TileSourceFactory.MAPNIK);
                 }
 
+
+            }
+        } else if (requestCode == 2) {
+            if (resultCode == RESULT_OK) {
+                Bundle bundle =intent.getExtras();
+                double lat = bundle.getDouble("lat");
+                double lon = bundle.getDouble("lon");
+                mv.getController().setCenter(new GeoPoint(lat,lon));
 
             }
         }

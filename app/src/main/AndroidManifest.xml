@@ -35,6 +35,11 @@
         <activity android:name=".MyPrefsActivity" android:label="Preferences">
 
         </activity>
+
+        <!-- LATITUDE LONGITUDE ACTIVITY -->
+        <activity android:name=".MyLatLonActivity" android:label="Set Latitude and Longitude">
+
+        </activity>
     </application>
 
 </manifest>
