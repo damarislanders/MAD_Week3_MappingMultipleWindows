@@ -85,17 +85,18 @@ public class MainActivity extends AppCompatActivity implements OnClickListener
             startActivityForResult(intent,0);
             return true;
 
-        } else if (item.getItemId() == R.id.preferences) {
-
-            Intent intent = new Intent(this, MyPrefsActivity.class);
-            startActivityForResult(intent,1);
-            return true;
-
         } else if (item.getItemId() == R.id.setlatlon) {
 
             Intent intent = new Intent(this, MyLatLonActivity.class);
+            startActivityForResult(intent,1);
+            return true;
+
+        } else if (item.getItemId() == R.id.preferences) {
+
+            Intent intent = new Intent(this, MyPrefsActivity.class);
             startActivityForResult(intent,2);
             return true;
+
         }
         return false;
     }
@@ -120,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener
 
 
             }
-        } else if (requestCode == 2) {
+        } else if (requestCode == 1) {
             if (resultCode == RESULT_OK) {
                 Bundle bundle =intent.getExtras();
                 double lat = bundle.getDouble("lat");
@@ -135,7 +136,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener
     {
         super.onStart();
 
-        new AlertDialog.Builder(this).setPositiveButton("OK", null).setMessage("onStart() called").show();
+        //new AlertDialog.Builder(this).setPositiveButton("OK", null).setMessage("onStart() called").show();
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         double lat = Double.parseDouble ( prefs.getString("lat", "50.9") );
@@ -149,7 +150,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener
     public void onStop()
     {
         super.onStop();
-        Toast.makeText(this, "onStop() called", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "onStop() called", Toast.LENGTH_SHORT).show();
     }
 
 
