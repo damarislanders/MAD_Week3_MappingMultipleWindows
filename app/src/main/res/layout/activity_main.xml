@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     >
 
+    <!--
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -64,6 +65,8 @@
         android:id="@+id/goButton"
         android:text="@string/go"
         />
+
+        -->
 
     <RelativeLayout
         android:layout_width="match_parent"

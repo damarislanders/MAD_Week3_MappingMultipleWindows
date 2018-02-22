@@ -47,10 +47,10 @@ public class MainActivity extends AppCompatActivity implements OnClickListener
         mv.getController().setZoom(16);
         mv.getController().setCenter(new GeoPoint(50.9115,-1.4156));
 
-
+        /*
         Button b = (Button)findViewById(R.id.goButton);
         b.setOnClickListener(this);
-
+        */
     }
 
     public void onClick(View view) {
