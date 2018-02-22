@@ -12,6 +12,12 @@
         android:title="Longitude"
         android:summary="Longitude to show the map at initially." />
 
+    <EditTextPreference
+        android:key="zoom"
+        android:defaultValue="16"
+        android:title="Zoom"
+        android:summary="Initial zoom of map." />
+
     <CheckBoxPreference
         android:key="autodownload"
         android:defaultValue="true"

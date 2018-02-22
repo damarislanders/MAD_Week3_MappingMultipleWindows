@@ -121,14 +121,18 @@ public class MainActivity extends AppCompatActivity implements OnClickListener
 
 
             }
-        } else if (requestCode == 1) {
-            if (resultCode == RESULT_OK) {
+        }
+        else if (requestCode == 1)
+        {
+            if (resultCode == RESULT_OK)
+            {
                 Bundle bundle =intent.getExtras();
                 double lat = bundle.getDouble("lat");
                 double lon = bundle.getDouble("lon");
                 mv.getController().setCenter(new GeoPoint(lat,lon));
 
             }
+
         }
     }
 
@@ -141,6 +145,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         double lat = Double.parseDouble ( prefs.getString("lat", "50.9") );
         double lon = Double.parseDouble ( prefs.getString("lon", "-1.4") );
+        int zoom = Integer.parseInt ( prefs.getString("zoom", "16"));
         boolean autodownload = prefs.getBoolean("autodownload", true);
         //String pizzaCode = prefs.getString("pizza", "NONE");
 
