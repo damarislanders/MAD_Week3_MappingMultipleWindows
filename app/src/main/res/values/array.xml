@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string-array name="mapProvider">
         <item>Normal</item>
         <item>Hike/Bike</item>
     </string-array>
+
+    <string-array name="mapProviderCodes">
+        <item>N</item>
+        <item>HB</item>
+    </string-array>
+
 </resources>

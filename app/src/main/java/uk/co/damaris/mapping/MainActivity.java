@@ -146,10 +146,13 @@ public class MainActivity extends AppCompatActivity implements OnClickListener
         double lat = Double.parseDouble ( prefs.getString("lat", "50.9") );
         double lon = Double.parseDouble ( prefs.getString("lon", "-1.4") );
         int zoom = Integer.parseInt ( prefs.getString("zoom", "16"));
-        boolean autodownload = prefs.getBoolean("autodownload", true);
-        //String pizzaCode = prefs.getString("pizza", "NONE");
+        String mapProvider = prefs.getString("pref_mapProvider", "N");
 
         // do something with the preference data...
+        mv.getController().setCenter(new GeoPoint(lat,lon));
+        mv.getController().setZoom(zoom);
+        mv.setTileSource(toString(mapProvider));
+
     }
 
     public void onStop()
