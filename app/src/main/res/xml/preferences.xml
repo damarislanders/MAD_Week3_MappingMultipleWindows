@@ -25,10 +25,9 @@
         android:summary="Auto-download GPS data around current location" />
 
     <ListPreference
-        android:key="pref_mapProvider"
-        android:title="Map Provider"
-        android:summary="Choose your Map Provider."
         android:entries="@array/mapProvider"
         android:entryValues="@array/mapProvider"
-        />
+        android:key="pref_mapProvider"
+        android:summary="Choose your Map Provider."
+        android:title="Map Provider" />
 </PreferenceScreen>

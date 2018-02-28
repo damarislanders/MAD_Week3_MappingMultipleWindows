@@ -151,7 +151,12 @@ public class MainActivity extends AppCompatActivity implements OnClickListener
         // do something with the preference data...
         mv.getController().setCenter(new GeoPoint(lat,lon));
         mv.getController().setZoom(zoom);
-        mv.setTileSource(toString(mapProvider));
+        if (mapProvider.equals("N") ) {
+            mv.setTileSource(TileSourceFactory.MAPNIK);
+
+        } else {
+            mv.setTileSource(TileSourceFactory.HIKEBIKEMAP);
+        }
 
     }
 
