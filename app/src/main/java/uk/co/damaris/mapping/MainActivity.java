@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener
     /****** GLOBAL VARIABLES ******/
     MapView mv;
 
+    boolean readHikeBikePreference;
+
 
     /** Called when the activity is first created. */
     @Override
@@ -46,6 +48,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener
         mv.setBuiltInZoomControls(true);
         mv.getController().setZoom(16);
         mv.getController().setCenter(new GeoPoint(50.9115,-1.4156));
+
+        readHikeBikePreference = true;
 
         /*
         Button b = (Button)findViewById(R.id.goButton);
@@ -119,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener
                     mv.setTileSource(TileSourceFactory.MAPNIK);
                 }
 
-
+                readHikeBikePreference = false;
             }
         }
         else if (requestCode == 1)
@@ -136,28 +140,30 @@ public class MainActivity extends AppCompatActivity implements OnClickListener
         }
     }
 
-    public void onStart()
-    {
-        super.onStart();
+    public void onResume() {
+        super.onResume();
 
         //new AlertDialog.Builder(this).setPositiveButton("OK", null).setMessage("onStart() called").show();
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        double lat = Double.parseDouble ( prefs.getString("lat", "50.9") );
-        double lon = Double.parseDouble ( prefs.getString("lon", "-1.4") );
-        int zoom = Integer.parseInt ( prefs.getString("zoom", "16"));
+        double lat = Double.parseDouble(prefs.getString("lat", "50.9"));
+        double lon = Double.parseDouble(prefs.getString("lon", "-1.4"));
+        int zoom = Integer.parseInt(prefs.getString("zoom", "16"));
         String mapProvider = prefs.getString("pref_mapProvider", "N");
 
         // do something with the preference data...
-        mv.getController().setCenter(new GeoPoint(lat,lon));
+        mv.getController().setCenter(new GeoPoint(lat, lon));
         mv.getController().setZoom(zoom);
-        if (mapProvider.equals("N") ) {
-            mv.setTileSource(TileSourceFactory.MAPNIK);
 
-        } else {
-            mv.setTileSource(TileSourceFactory.HIKEBIKEMAP);
+        if (readHikeBikePreference == true) {
+            if (mapProvider.equals("N")) {
+                mv.setTileSource(TileSourceFactory.MAPNIK);
+
+            } else {
+                mv.setTileSource(TileSourceFactory.HIKEBIKEMAP);
+            }
         }
-
+        readHikeBikePreference = true;
     }
 
     public void onStop()

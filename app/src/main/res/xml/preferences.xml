@@ -26,8 +26,9 @@
 
     <ListPreference
         android:entries="@array/mapProvider"
-        android:entryValues="@array/mapProvider"
+        android:entryValues="@array/mapProviderCodes"
         android:key="pref_mapProvider"
         android:summary="Choose your Map Provider."
         android:title="Map Provider" />
+
 </PreferenceScreen>

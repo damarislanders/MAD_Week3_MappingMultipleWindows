@@ -47,7 +47,7 @@ public class MyLatLonActivity extends AppCompatActivity implements View.OnClickL
         Intent intent = new Intent();
         intent.putExtras(bundle);
 
-        // Fire off the intent
+        //Fire off the intent
         setResult(RESULT_OK,intent);
         finish();
 
