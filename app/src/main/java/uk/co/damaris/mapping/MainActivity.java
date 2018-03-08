@@ -101,6 +101,11 @@ public class MainActivity extends AppCompatActivity implements OnClickListener
             startActivityForResult(intent,2);
             return true;
 
+        } else if (item.getItemId() == R.id.listItem) {
+
+            Intent intent = new Intent(this, MapChooseListActivity.class);
+            startActivityForResult(intent,0);
+            return true;
         }
         return false;
     }

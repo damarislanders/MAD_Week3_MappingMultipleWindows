@@ -40,6 +40,11 @@
         <activity android:name=".MyLatLonActivity" android:label="Set Latitude and Longitude">
 
         </activity>
+
+        <!-- MAP CHOOSE LIST ACTIVITY -->
+        <activity android:name=".MapChooseListActivity" android:label="Map Type List Activity">
+
+        </activity>
     </application>
 
 </manifest>

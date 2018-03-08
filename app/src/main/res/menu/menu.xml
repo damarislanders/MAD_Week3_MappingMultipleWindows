@@ -13,4 +13,9 @@
         android:id="@+id/setlatlon"
         android:title="Set Latitude and Longitude"/>
 
+    <item
+        android:id="@+id/listItem"
+        android:title="Map List Items"/>
+
+
 </menu>
